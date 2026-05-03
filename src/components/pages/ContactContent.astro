@@ -1,0 +1,81 @@
+---
+---
+<section class="page-hero">
+  <div class="container">
+    <h1>בוא נבדוק מה אפשר להשיג יחד</h1>
+    <p>שאלה, רעיון, או סתם רוצים להבין אם זה מתאים — כתבו לנו.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid-2" style="gap: var(--space-6);">
+      <div>
+        <h2 style="margin-bottom: var(--space-3);">שלח הודעה</h2>
+        <form name="contact" method="POST" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="form-group">
+            <label for="name">שם</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="השם שלך"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">טלפון</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-control"
+              placeholder="050-0000000"
+              autocomplete="tel"
+              dir="ltr"
+              style="text-align: right;"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">אימייל</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+              dir="ltr"
+              style="text-align: right;"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">שלח</button>
+        </form>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-5);">
+        <p style="font-size: 1.05rem; color: var(--color-text);">או קבע פגישה ישירה</p>
+        <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: fit-content;">
+          פתח יומן לתיאום ←
+        </a>
+
+        <div style="margin-top: var(--space-4);">
+          <p style="font-size: 0.95rem; margin-bottom: var(--space-1);">
+            <a href="mailto:hello@atn.co.il" style="color: var(--color-primary);">hello@atn.co.il</a>
+          </p>
+          <p style="font-size: 0.95rem;">
+            <a href="tel:0501234567" class="ltr-number" style="color: var(--color-primary);">050-1234567</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

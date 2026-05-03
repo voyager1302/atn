@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/site/Header.astro';
+import Footer from '../../components/site/Footer.astro';
+
+export function getStaticPaths() {
+  return [
+    {
+      params: { slug: 'why-landing-pages-dont-convert' },
+      props: {
+        title: 'למה דפי נחיתה לא ממירים — ומה לעשות',
+        date: '2024-01-15',
+        category: 'המרות',
+      },
+    },
+    {
+      params: { slug: 'interactive-pages-that-work' },
+      props: {
+        title: 'דפים אינטראקטיביים שעובדים בפועל',
+        date: '2024-02-01',
+        category: 'עיצוב',
+      },
+    },
+  ];
+}
+
+const { title, date, category } = Astro.props;
+---
+<BaseLayout
+  title={`${title} | ATN בלוג`}
+  description={`${title} — מאמר מהבלוג של ATN.`}
+>
+  <Header slot="header" />
+
+  <section style="padding-block: var(--space-6);">
+    <div class="container">
+      <article class="blog-article">
+        <div class="blog-meta">{category} · {date}</div>
+        <h1>{title}</h1>
+
+        <div style="line-height: 1.9; color: var(--color-text);">
+          <h2>השאלה</h2>
+          <p>מה גורם למשתמש להגיע לדף, לסרוק אותו — ולעזוב בלי לפעול?</p>
+
+          <h2 style="margin-top: var(--space-4);">התשובה הקצרה</h2>
+          <p>הדף לא גרם לו לעשות כלום. הוא הציג מידע, לא יצר תהליך.</p>
+
+          <h2 style="margin-top: var(--space-4);">הפירוט</h2>
+          <p>כשדף לא מגיב למשתמש, הוא הופך לפמפלט דיגיטלי. אנשים סורקים, לא קוראים. ואם אין שום דבר שמעצור אותם — הם ממשיכים.</p>
+
+          <h2 style="margin-top: var(--space-4);">סיכום</h2>
+          <p>הדרך לשנות את זה היא לגרום לדף לגיב. לא בהכרח טכנולוגית — פסיכולוגית. הצעד הבא צריך להיות ברור ומושך.</p>
+        </div>
+
+        <div style="margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-border);">
+          <p style="margin-bottom: var(--space-3);">רוצה לראות איך זה עובד על הדף שלך?</p>
+          <a href="/contact" class="btn btn-primary">קבע פגישה</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

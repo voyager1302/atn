@@ -1,0 +1,32 @@
+/* tokens.css */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f5f6fa;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-primary: #3b1f8f;
+  --color-accent: #7c5cbf;
+  --color-border: #e5e7eb;
+
+  /* System-font fallback renders immediately; Heebo loads async without blocking */
+  --font-main: 'Heebo', 'Arial Hebrew', Arial, system-ui, sans-serif;
+
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+
+  --container: 1280px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+
+  --transition-fast: 150ms ease;
+  --transition-mid: 200ms ease;
+  --transition-slow: 300ms ease;
+}

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import HowItWorksContent from '../components/pages/HowItWorksContent.astro';
+---
+<BaseLayout
+  title="איך זה עובד | ATN"
+  description="בעיה, עקרון, תגובה ופעולה — הגישה של ATN לדפי נחיתה שעובדים."
+>
+  <Header slot="header" />
+  <HowItWorksContent />
+  <Footer slot="footer" />
+</BaseLayout>

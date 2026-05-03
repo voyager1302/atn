@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Matches the engines.node requirement in package.json
+  NODE_VERSION = "22"
+
+# HTML pages — never serve stale HTML after a deploy
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Content-hashed Astro assets (/_astro/Footer.abc123.css etc.) — immutable
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Self-hosted WOFF2 fonts — immutable binary files
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

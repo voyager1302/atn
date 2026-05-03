@@ -1,0 +1,81 @@
+---
+---
+<header class="header" id="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="header-logo">ATN</a>
+
+      <nav aria-label="ניווט ראשי">
+        <ul class="header-nav">
+          <li><a href="/services">שירותים</a></li>
+          <li><a href="/how-it-works">איך זה עובד</a></li>
+          <li><a href="/about">אודות</a></li>
+          <li><a href="/blog">בלוג</a></li>
+          <li><a href="/contact">צור קשר</a></li>
+        </ul>
+      </nav>
+
+      <a href="/contact" class="btn btn-primary header-cta">קבע פגישה ←</a>
+
+      <button class="hamburger" id="hamburger" aria-label="פתח תפריט" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="ניווט נייד">
+  <a href="/services" class="mobile-nav-link">שירותים</a>
+  <a href="/how-it-works" class="mobile-nav-link">איך זה עובד</a>
+  <a href="/about" class="mobile-nav-link">אודות</a>
+  <a href="/blog" class="mobile-nav-link">בלוג</a>
+  <a href="/contact" class="mobile-nav-link">צור קשר</a>
+  <a href="/contact" class="btn btn-primary mt-3">קבע פגישה ←</a>
+</nav>
+
+<script>
+  const header = document.getElementById('site-header') as HTMLElement;
+  const hamburger = document.getElementById('hamburger') as HTMLButtonElement;
+  const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+
+  // Initialize immediately: non-hero pages (Services, About, etc.) have a light
+  // background, so the header must show dark text from the first frame.
+  // Also handle the case where the user loads a page with a pre-existing scroll offset.
+  const hasDarkHero = !!document.querySelector('.hero');
+  if (!hasDarkHero || window.scrollY > 0) {
+    header.classList.add('scrolled');
+  }
+
+  // Sticky header: IntersectionObserver is far cheaper than a scroll listener.
+  // A 1px sentinel at the top of the page triggers when user scrolls past it.
+  const sentinel = document.createElement('div');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+  document.body.insertBefore(sentinel, document.body.firstChild);
+
+  new IntersectionObserver(
+    ([entry]) => header.classList.toggle('scrolled', !entry.isIntersecting),
+    { threshold: 0 }
+  ).observe(sentinel);
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close mobile nav on link click
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

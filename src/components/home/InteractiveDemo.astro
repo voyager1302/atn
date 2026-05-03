@@ -1,0 +1,23 @@
+---
+import Overlay from '../ui/Overlay.astro';
+---
+<section class="demo-section section-dark" id="interactive-demo">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>נסה בעצמך</h2>
+      <p style="margin-inline: auto;">לחץ על הכפתור ותראה בדיוק מה קורה כשדף מגיב למשתמש</p>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary btn-demo" data-open-overlay>
+        בדוק מה קורה אחרי קליק
+      </button>
+    </div>
+  </div>
+</section>
+
+<Overlay />
+
+<script>
+  import '../../scripts/interactive-demo.ts';
+</script>

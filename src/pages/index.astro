@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import Hero from '../components/home/Hero.astro';
+import ImmediateProof from '../components/home/ImmediateProof.astro';
+import ProblemSection from '../components/home/ProblemSection.astro';
+import SolutionSection from '../components/home/SolutionSection.astro';
+import InteractiveDemo from '../components/home/InteractiveDemo.astro';
+import BenefitsSection from '../components/home/BenefitsSection.astro';
+import MicroConversion from '../components/home/MicroConversion.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+<BaseLayout
+  title="ATN | דפי נחיתה שמייצרים פעולה"
+  description="דפי נחיתה שלא רק מביאים תנועה אלא מייצרים פעולה. המשתמש לא רק קורא — הוא מגיב."
+>
+  <Header slot="header" />
+  <Hero />
+  <ImmediateProof />
+  <ProblemSection />
+  <SolutionSection />
+  <InteractiveDemo />
+  <BenefitsSection />
+  <MicroConversion />
+  <FinalCTA />
+  <Footer slot="footer" />
+</BaseLayout>

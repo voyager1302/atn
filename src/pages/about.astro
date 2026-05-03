@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import AboutContent from '../components/pages/AboutContent.astro';
+---
+<BaseLayout
+  title="אודות | ATN"
+  description="ATN — מי אנחנו, איך אנחנו חושבים, ולמה אנחנו שונים."
+>
+  <Header slot="header" />
+  <AboutContent />
+  <Footer slot="footer" />
+</BaseLayout>

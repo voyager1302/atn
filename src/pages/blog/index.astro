@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/site/Header.astro';
+import Footer from '../../components/site/Footer.astro';
+
+// Placeholder posts — replace with real content collection later
+const posts = [
+  {
+    slug: 'why-landing-pages-dont-convert',
+    title: 'למה דפי נחיתה לא ממירים — ומה לעשות',
+    date: '2024-01-15',
+    category: 'המרות',
+    excerpt: 'רוב הדפים מציגים מידע. מעטים יוצרים פעולה. ההבדל הוא לא בתוכן — אלא בתגובה.',
+  },
+  {
+    slug: 'interactive-pages-that-work',
+    title: 'דפים אינטראקטיביים שעובדים בפועל',
+    date: '2024-02-01',
+    category: 'עיצוב',
+    excerpt: 'אינטראקטיביות לא אומרת אנימציות. אומרת שהדף מגיב למה שהמשתמש עושה.',
+  },
+];
+---
+<BaseLayout
+  title="בלוג | ATN"
+  description="מאמרים על המרות, דפי נחיתה, ואיך גורמים למשתמשים לפעול."
+>
+  <Header slot="header" />
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>בלוג</h1>
+      <p>עקרונות, דוגמאות ותובנות על המרות דיגיטליות.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="card blog-card">
+            <div class="blog-meta">{post.category} · {post.date}</div>
+            <h3>{post.title}</h3>
+            <p style="font-size: 0.95rem; max-width: 100%;">{post.excerpt}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .card.blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    cursor: pointer;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+  }
+  .card.blog-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+</style>

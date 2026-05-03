@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import ServicesContent from '../components/pages/ServicesContent.astro';
+---
+<BaseLayout
+  title="שירותים | ATN"
+  description="דפי נחיתה ממירים, יצירת מעורבות והובלה לפעולה — השירותים של ATN."
+>
+  <Header slot="header" />
+  <ServicesContent />
+  <Footer slot="footer" />
+</BaseLayout>

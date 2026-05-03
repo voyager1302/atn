@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
+import ContactContent from '../components/pages/ContactContent.astro';
+---
+<BaseLayout
+  title="צור קשר | ATN"
+  description="צור קשר עם ATN — שלח הודעה או קבע פגישה ישירה."
+>
+  <Header slot="header" />
+  <ContactContent />
+  <Footer slot="footer" />
+</BaseLayout>

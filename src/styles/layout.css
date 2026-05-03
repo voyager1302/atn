@@ -1,0 +1,41 @@
+/* layout.css */
+
+/* Sections span 100% viewport width (background fills edge-to-edge).
+   The .container inside each section constrains readable content to 1280px. */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  /* Responsive padding: 24px on small screens, scales up to 40px on wide screens */
+  padding-inline: clamp(24px, 3vw, 40px);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+section {
+  padding-block: var(--space-6);
+}
