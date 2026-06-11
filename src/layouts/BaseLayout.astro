@@ -22,9 +22,17 @@ const { title, description } = Astro.props;
 
   <!-- Heebo: self-hosted WOFF2, loaded off the critical path (discovered via @font-face in CSS) -->
 
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta name="robots" content="index, follow" />
 </head>
 <body>
+  <script is:inline>
+    // Temp Assets Debug Mode — להסרה לפני עליה לאוויר
+    if (new URLSearchParams(location.search).has('temp')) {
+      document.body.classList.add('show-temp-assets');
+    }
+  </script>
   <slot name="header" />
   <main>
     <slot />
