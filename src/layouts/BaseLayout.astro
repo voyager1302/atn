@@ -28,8 +28,16 @@ const { title, description } = Astro.props;
 </head>
 <body>
   <script is:inline>
-    // Temp Assets Debug Mode — להסרה לפני עליה לאוויר
+    // Assets Debug Mode — להסרה לפני עליה לאוויר
     if (new URLSearchParams(location.search).has('temp')) {
+      const val = new URLSearchParams(location.search).get('temp');
+      if (val === '0') {
+        sessionStorage.removeItem('showTempAssets');
+      } else {
+        sessionStorage.setItem('showTempAssets', '1');
+      }
+    }
+    if (sessionStorage.getItem('showTempAssets')) {
       document.body.classList.add('show-temp-assets');
     }
   </script>
