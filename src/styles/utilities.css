@@ -92,3 +92,9 @@ body.show-temp-assets [data-asset-status="missing"]::after {
   background: #3b82f6;
   color: #fff;
 }
+
+/* Placeholder גובה מינימלי — נראה ב-?temp=1 בלבד */
+body.show-temp-assets .asset-placeholder {
+  min-height: 60px;
+  width: 100%;
+}
