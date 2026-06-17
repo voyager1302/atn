@@ -37,22 +37,13 @@
 .surface { background: var(--color-surface); }
 .divider { border: none; border-top: 1px solid var(--color-border); }
 
-/* ===== Temp Assets Debug Mode — להסרה לפני עליה לאוויר ===== */
-body.show-temp-assets [data-temp] {
-  outline: 2px dashed #f59e0b !important;
-  outline-offset: 3px;
-  position: relative;
-}
-body.show-temp-assets span[data-temp] {
-  display: inline-block; /* כדי שהתגית תתמקם נכון על spans */
-}
-body.show-temp-assets [data-temp]::after {
-  content: "#" attr(data-temp);
+/* ===== Assets Debug Mode — להסרה לפני עליה לאוויר ===== */
+
+/* בסיס — מסגרת + תגית לכל נכס מסומן */
+body.show-temp-assets [data-asset]::after {
   position: absolute;
-  top: -12px;
-  inset-inline-start: -12px;
-  background: #f59e0b;
-  color: #000;
+  top: -14px;
+  inset-inline-start: -2px;
   font-size: 11px;
   font-weight: 700;
   line-height: 1;
@@ -61,4 +52,43 @@ body.show-temp-assets [data-temp]::after {
   z-index: 9999;
   pointer-events: none;
   white-space: nowrap;
+  content: "#" attr(data-asset);
+}
+body.show-temp-assets [data-asset] {
+  outline-offset: 3px;
+  position: relative;
+}
+body.show-temp-assets span[data-asset],
+body.show-temp-assets a[data-asset] {
+  display: inline-block;
+}
+
+/* 🟡 צהוב = זמני (פלייסהולדר) */
+body.show-temp-assets [data-asset-status="temp"] {
+  outline: 2px dashed #f59e0b !important;
+}
+body.show-temp-assets [data-asset-status="temp"]::after {
+  background: #f59e0b;
+  color: #000;
+}
+
+/* 🟢 ירוק = הוחלף (יש קובץ אמיתי) */
+body.show-temp-assets [data-asset-status="replaced"] {
+  outline: 2px solid #22c55e !important;
+}
+body.show-temp-assets [data-asset-status="replaced"]::after {
+  background: #22c55e;
+  color: #fff;
+}
+
+/* 🔵 כחול = ריק (מקום שצריך גרפיקה, אין כלום) */
+body.show-temp-assets [data-asset-status="missing"] {
+  outline: 2px dashed #3b82f6 !important;
+  min-height: 40px;
+  min-width: 40px;
+  display: block;
+}
+body.show-temp-assets [data-asset-status="missing"]::after {
+  background: #3b82f6;
+  color: #fff;
 }
