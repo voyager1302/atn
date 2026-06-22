@@ -29,4 +29,21 @@
   --transition-fast: 150ms ease;
   --transition-mid: 200ms ease;
   --transition-slow: 300ms ease;
+
+  /* Typography scale */
+  --text-xs:   clamp(0.75rem, 0.4vw + 0.3rem, 0.875rem);
+  --text-sm:   clamp(0.85rem, 0.6vw + 0.3rem, 0.95rem);
+  --text-base: clamp(0.95rem, 0.8vw + 0.4rem, 1.05rem);
+  --text-lg:   clamp(1.05rem, 1.2vw + 0.3rem, 1.2rem);
+  --text-xl:   clamp(1.2rem,  1.8vw + 0.3rem, 1.5rem);
+  --text-2xl:  clamp(1.4rem,  2.5vw + 0.3rem, 2rem);
+  --text-3xl:  clamp(1.8rem,  3.5vw + 0.3rem, 2.75rem);
+  --text-4xl:  clamp(2rem,    4vw   + 0.5rem, 3.25rem);
+
+  /* Line heights */
+  --leading-tight:   1.15;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+  --leading-loose:   1.9;
 }
