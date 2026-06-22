@@ -850,7 +850,7 @@
 .micro-conversion-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;   /* שינוי מ-center ל-stretch */
   gap: var(--space-4);
   max-width: 600px;
   margin-inline: auto;
@@ -876,15 +876,16 @@
 
 .micro-conversion-text h2 {
   text-align: center;
-  font-size: clamp(1rem, 2.5vw + 0.2rem, 1.35rem);
+  width: 100%;            /* רוחב מלא של הקונטיינר */
+  font-size: clamp(0.95rem, 2vw + 0.2rem, 1.25rem);
   line-height: 1.3;
-  white-space: nowrap; /* מונע שבירת שורה */
+  white-space: nowrap;
 }
 
 @media (max-width: 480px) {
   .micro-conversion-text h2 {
-    white-space: normal; /* במסכים קטנים מאוד — מאפשר שבירה */
-    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    white-space: normal;
+    font-size: clamp(0.88rem, 4vw, 1rem);
   }
 }
 
