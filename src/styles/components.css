@@ -394,26 +394,69 @@
 
 /* ── Hero ── */
 .hero {
-  background: linear-gradient(135deg, #1a0d4a 0%, var(--color-primary) 60%, var(--color-accent) 100%);
-  color: white;
-  padding-block: var(--space-6);
+  position: relative;
+  width: 100%;
   min-height: 85vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
+}
+
+/* תמונת רקע — מכסה את כל הסקשן */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* שכבת כהות על התמונה לקריאות הטקסט */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(10, 4, 30, 0.82) 0%,
+    rgba(10, 4, 30, 0.55) 55%,
+    rgba(10, 4, 30, 0.15) 100%
+  );
+}
+
+/* Overlay הטקסט — ממוקם מעל התמונה, מיושר לימין */
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: var(--space-6);
+  padding-inline: var(--space-4);
+  display: flex;
+  justify-content: flex-end; /* RTL: ימין = התחלה */
+}
+
+.hero-text {
+  max-width: 560px;
+  color: white;
 }
 
 .hero h1 {
   color: white;
   margin-bottom: var(--space-3);
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
 .hero p {
-  color: rgba(255,255,255,0.8);
-  font-size: clamp(1rem, 1vw + 0.6rem, 1.15rem);
-  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  font-size: clamp(1rem, 1.5vw + 0.3rem, 1.2rem);
   margin-bottom: var(--space-4);
-  max-width: 52ch;
+  max-width: 48ch;
 }
 
 .hero-actions {
@@ -422,25 +465,6 @@
   flex-wrap: wrap;
 }
 
-/* Visual on the right (first column in RTL), ~20% wider than the text column */
-.hero-grid {
-  grid-template-columns: 1.2fr 1fr;
-}
-
-.hero-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-visual img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: var(--radius-lg);
-}
-
-/* Hero secondary button: white border/text on dark background */
 .hero .btn-secondary {
   border-color: rgba(255,255,255,0.5);
   color: white;
@@ -452,11 +476,28 @@
 }
 
 @media (max-width: 767px) {
-  .hero { min-height: auto; padding-block: var(--space-5); }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-grid .hero-text { order: -1; }       /* headline first on mobile */
-  .hero-visual { margin-top: var(--space-4); }
-  .hero-actions .btn-secondary { display: none; }
+  .hero {
+    min-height: 70vh;
+    align-items: flex-end; /* טקסט בתחתית במובייל */
+  }
+  .hero-bg::after {
+    background: linear-gradient(
+      to top,
+      rgba(10, 4, 30, 0.88) 0%,
+      rgba(10, 4, 30, 0.4) 60%,
+      rgba(10, 4, 30, 0.1) 100%
+    );
+  }
+  .hero-overlay {
+    justify-content: flex-start;
+    padding-block: var(--space-5) var(--space-5);
+  }
+  .hero-text {
+    max-width: 100%;
+  }
+  .hero-actions .btn-secondary {
+    display: none;
+  }
 }
 
 /* ── Dark section variant ── */
@@ -835,6 +876,16 @@
 
 .micro-conversion-text h2 {
   text-align: center;
+  font-size: clamp(1rem, 2.5vw + 0.2rem, 1.35rem);
+  line-height: 1.3;
+  white-space: nowrap; /* מונע שבירת שורה */
+}
+
+@media (max-width: 480px) {
+  .micro-conversion-text h2 {
+    white-space: normal; /* במסכים קטנים מאוד — מאפשר שבירה */
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
 }
 
 .micro-conversion-text p {
