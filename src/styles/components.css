@@ -592,6 +592,12 @@
 }
 
 /* ── Problem Cards ── */
+.problem-section-title {
+  text-align: center;
+  color: white;
+  margin-bottom: var(--space-4);
+}
+
 .problem-cards {
   display: flex;
   align-items: center;
