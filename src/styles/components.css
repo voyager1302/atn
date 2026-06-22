@@ -591,11 +591,88 @@
   padding-block: 14px;
 }
 
-.problem-flow-img {
+/* ── Problem Cards ── */
+.problem-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.problem-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 160px;
+  max-width: 240px;
+}
+
+.problem-card-visual {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-card-visual img {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: var(--radius-md);
+  max-height: 180px;
+  object-fit: contain;
+}
+
+.problem-card-text {
+  text-align: center;
+}
+
+.problem-card-title {
+  font-size: var(--text-xl, 1.3rem);
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  max-width: 100%;
+}
+
+.problem-card-desc {
+  font-size: var(--text-sm, 0.9rem);
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+  max-width: 100%;
+}
+
+.problem-card-arrow {
+  font-size: 1.5rem;
+  color: rgba(255,255,255,0.4);
+  flex-shrink: 0;
+}
+
+/* מובייל — עמודה אחת, חצים מוסתרים */
+@media (max-width: 767px) {
+  .problem-cards {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .problem-card {
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-align: right;
+    gap: var(--space-3);
+  }
+  .problem-card-visual {
+    width: 80px;
+    flex-shrink: 0;
+  }
+  .problem-card-text {
+    text-align: right;
+  }
+  .problem-card-arrow {
+    display: none;
+  }
 }
 
 /* ── Solution section ── */
@@ -723,66 +800,40 @@
   background: var(--color-surface);
 }
 
-/* Guide book visual */
-.guide-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.guide-book-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-md);
-  filter: drop-shadow(8px 10px 28px rgba(59,31,143,0.4));
-}
-
-.guide-book {
-  display: flex;
-  align-items: stretch;
-  filter: drop-shadow(8px 10px 28px rgba(59,31,143,0.4));
-}
-
-.guide-book-spine {
-  width: 18px;
-  background: #1a0d4a;
-  border-radius: 6px 0 0 6px;
-  flex-shrink: 0;
-}
-
-.guide-book-cover {
-  width: 148px;
-  height: 196px;
-  background: linear-gradient(160deg, #2e1870 0%, var(--color-primary) 100%);
-  border-radius: 0 6px 6px 0;
-  padding: 22px 16px;
+.micro-conversion-inner {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.guide-line {
-  height: 8px;
-  background: rgba(255,255,255,0.68);
-  border-radius: 4px;
+.micro-conversion-inner .guide-visual {
+  width: 100%;
 }
 
-.guide-line-short {
-  width: 55%;
-  background: rgba(255,255,255,0.35);
+.micro-conversion-inner .guide-visual img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  height: auto;
 }
 
-.guide-line-icon {
-  width: 32px;
-  height: 32px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 6px;
-  margin-bottom: 4px;
+.micro-conversion-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-@media (max-width: 767px) {
-  .guide-visual { display: none; }
-  .micro-conversion .grid-2 { grid-template-columns: 1fr; }
+.micro-conversion-text h2 {
+  text-align: center;
+}
+
+.micro-conversion-text p {
+  text-align: center;
+  max-width: 52ch;
 }
 
 /* ── FinalCTA ── */

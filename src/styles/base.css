@@ -37,6 +37,10 @@
 }
 
 html {
+  /* Base font size: 112.5% of the browser default (16px) = 18px.
+     Using % instead of a fixed px keeps the user's browser font preference respected.
+     All rem values (and the rem parts of clamp()) scale from this. */
+  font-size: 112.5%;
   /* scroll-behavior: smooth removed — JS handles this selectively via data-smooth-scroll.
      CSS-level smooth scroll causes Lighthouse to measure slower LCP on anchor links. */
   -webkit-text-size-adjust: 100%;
