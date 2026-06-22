@@ -550,6 +550,24 @@
   font-weight: 700;
 }
 
+.proof-visual svg.proof-svg {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+}
+
+#proof-c1,
+#proof-c2,
+#proof-c3 {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+#proof-c1 { animation: proof-pulse 3s ease-in-out infinite 0s; }
+#proof-c2 { animation: proof-pulse 3s ease-in-out infinite 1s; }
+#proof-c3 { animation: proof-pulse 3s ease-in-out infinite 2s; }
+
 /* ── Problem section ── */
 .problem-section-compact {
   padding-block: 14px;
@@ -660,6 +678,12 @@
   display: block;
 }
 
+.benefit-card .card-icon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
 .benefit-card h3 {
   margin-bottom: var(--space-1);
   color: var(--color-primary);
@@ -680,6 +704,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.guide-book-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  filter: drop-shadow(8px 10px 28px rgba(59,31,143,0.4));
 }
 
 .guide-book {
