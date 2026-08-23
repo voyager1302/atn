@@ -3,25 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/site/Header.astro';
 import Footer from '../../components/site/Footer.astro';
 
-export function getStaticPaths() {
-  return [
-    {
-      params: { slug: 'why-landing-pages-dont-convert' },
-      props: {
-        title: 'למה דפי נחיתה לא ממירים — ומה לעשות',
-        date: '2024-01-15',
-        category: 'המרות',
-      },
-    },
-    {
-      params: { slug: 'interactive-pages-that-work' },
-      props: {
-        title: 'דפים אינטראקטיביים שעובדים בפועל',
-        date: '2024-02-01',
-        category: 'עיצוב',
-      },
-    },
-  ];
+type ArticlePath = {
+  params: { slug: string };
+  props: { title: string; date: string; category: string };
+};
+
+// Article template — no local articles; routes will be wired to bama.blog later
+export function getStaticPaths(): ArticlePath[] {
+  return [];
 }
 
 const { title, date, category } = Astro.props;

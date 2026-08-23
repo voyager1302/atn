@@ -3,23 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/site/Header.astro';
 import Footer from '../../components/site/Footer.astro';
 
-// Placeholder posts — replace with real content collection later
-const posts = [
-  {
-    slug: 'why-landing-pages-dont-convert',
-    title: 'למה דפי נחיתה לא ממירים — ומה לעשות',
-    date: '2024-01-15',
-    category: 'המרות',
-    excerpt: 'רוב הדפים מציגים מידע. מעטים יוצרים פעולה. ההבדל הוא לא בתוכן — אלא בתגובה.',
-  },
-  {
-    slug: 'interactive-pages-that-work',
-    title: 'דפים אינטראקטיביים שעובדים בפועל',
-    date: '2024-02-01',
-    category: 'עיצוב',
-    excerpt: 'אינטראקטיביות לא אומרת אנימציות. אומרת שהדף מגיב למה שהמשתמש עושה.',
-  },
-];
+// Articles will come from bama.blog later — no local posts for now
+type Post = { slug: string; title: string; date: string; category: string; excerpt: string };
+const posts: Post[] = [];
 ---
 <BaseLayout
   title="בלוג | ATN"
@@ -36,6 +22,9 @@ const posts = [
 
   <section>
     <div class="container">
+      {posts.length === 0 && (
+        <p class="blog-empty">מאמרים חדשים יתפרסמו כאן בקרוב.</p>
+      )}
       <div class="blog-grid">
         {posts.map((post) => (
           <a href={`/blog/${post.slug}`} class="card blog-card">
@@ -52,6 +41,10 @@ const posts = [
 </BaseLayout>
 
 <style>
+  .blog-empty {
+    text-align: center;
+    color: var(--color-muted);
+  }
   .card.blog-card {
     display: flex;
     flex-direction: column;
