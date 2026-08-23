@@ -1,8 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://atn-convert.com",
+
   vite: {
     build: {
       // esbuild is bundled with Vite — no extra package required.
@@ -19,4 +23,6 @@ export default defineConfig({
       drop: ['console'],
     },
   },
+
+  integrations: [sitemap()],
 });
