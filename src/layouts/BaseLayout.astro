@@ -4,13 +4,46 @@ import '../styles/base.css';
 import '../styles/layout.css';
 import '../styles/components.css';
 import '../styles/utilities.css';
+import { SITE_URL } from '../lib/config/urls';
 
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+const ogImageURL = new URL('/og-image.png', SITE_URL).href;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'ATN',
+  url: SITE_URL,
+  telephone: '+972-54-765-7771',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'יואל 17',
+    addressLocality: 'בני ברק',
+    postalCode: '5137090',
+    addressCountry: 'IL',
+  },
+  sameAs: [
+    'https://www.facebook.com/ovadya.toporowitch',
+    'https://www.linkedin.com/in/ovadya-toporowitch-087178193/',
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'ATN',
+  url: SITE_URL,
+};
+
+const isHomepage = Astro.url.pathname === '/';
 ---
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -24,7 +57,31 @@ const { title, description } = Astro.props;
 
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="ATN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  {isHomepage && (
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  )}
 </head>
 <body>
   <script is:inline>
