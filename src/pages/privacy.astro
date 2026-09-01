@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/site/Header.astro';
 import Footer from '../components/site/Footer.astro';
+import { PHONE_TEL, PHONE_DISPLAY } from '../lib/config/contact';
 ---
 <BaseLayout
   title="מדיניות פרטיות | ATN"
@@ -22,7 +23,7 @@ import Footer from '../components/site/Footer.astro';
         <p>אתר ATN ("האתר", "אנחנו") מופעל על ידי איי טי אן אחזקות ויזמות נדל"ן ישראל (ח.פ. 514913870). אנו מחויבים לשמירה על פרטיות המבקרים באתר בהתאם לדין בישראל, ובכלל זה חוק הגנת הפרטיות והנחיות רשות הגנת הפרטיות.</p>
 
         <h2>מי אנחנו ופרטי קשר</h2>
-        <p>איי טי אן אחזקות ויזמות נדל"ן ישראל (ח.פ. 514913870), יואל 17, בני ברק 5137090. טלפון: <a href="tel:0547657771" class="ltr-number">054-765-7771</a>. אימייל: <a href="mailto:ATN.ISRAEL@gmail.com">ATN.ISRAEL@gmail.com</a></p>
+        <p>איי טי אן אחזקות ויזמות נדל"ן ישראל (ח.פ. 514913870), יואל 17, בני ברק 5137090. טלפון: <a href={`tel:${PHONE_TEL}`} class="ltr-number">{PHONE_DISPLAY}</a>. אימייל: <a href="mailto:ATN.ISRAEL@gmail.com">ATN.ISRAEL@gmail.com</a></p>
 
         <h2>איזה מידע אנו אוספים</h2>
         <p>האתר אינו כולל טפסים השומרים מידע אצלנו ואינו דורש הרשמה. פנייה אלינו מתבצעת דרך WhatsApp או טלפון, ביוזמתך. פרטים שתמסור בפנייה כזו (כגון שם, טלפון או אימייל) מגיעים אלינו ישירות בערוץ שבחרת ומשמשים למענה לפנייתך בלבד.</p>

@@ -5,6 +5,7 @@ import '../styles/layout.css';
 import '../styles/components.css';
 import '../styles/utilities.css';
 import { SITE_URL } from '../lib/config/urls';
+import { PHONE_E164_DASHED } from '../lib/config/contact';
 
 interface Props {
   title: string;
@@ -22,7 +23,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'ATN',
   url: SITE_URL,
-  telephone: '+972-54-765-7771',
+  telephone: PHONE_E164_DASHED,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'יואל 17',

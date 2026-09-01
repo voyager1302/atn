@@ -64,11 +64,6 @@
       <div style="display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-5);">
         <div data-asset="34" data-asset-status="missing" aria-hidden="true" class="asset-placeholder"></div>
 
-        <div style="margin-top: var(--space-4);">
-          <p style="font-size: 0.95rem;">
-            <a href="tel:0547657771" class="ltr-number" style="color: var(--color-primary);">054-765-7771</a>
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -83,6 +78,7 @@
 </style>
 
 <script>
+import { WHATSAPP_WA } from '../../lib/config/contact';
   const form = document.getElementById('whatsapp-form') as HTMLFormElement | null;
 
   if (form) {
@@ -119,7 +115,7 @@
       ].join('\n');
 
       window.open(
-        `https://wa.me/972547657771?text=${encodeURIComponent(text)}`,
+        `https://wa.me/${WHATSAPP_WA}?text=${encodeURIComponent(text)}`,
         '_blank',
         'noopener'
       );
