@@ -58,6 +58,7 @@ const isHomepage = Astro.url.pathname === '/';
 
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
   <link rel="canonical" href={canonicalURL} />
 
@@ -79,9 +80,9 @@ const isHomepage = Astro.url.pathname === '/';
   <meta name="twitter:image" content={ogImageURL} />
 
   <!-- Structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema).replace(/</g, '\\u003c')} />
   {isHomepage && (
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g, '\\u003c')} />
   )}
 </head>
 <body>

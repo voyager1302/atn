@@ -5,7 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://atn-convert.com",
+  // Mirror of SITE_URL in src/lib/config/urls.ts — keep both expressions identical.
+  site: process.env.PUBLIC_SITE_URL ?? "https://atn-convert.com",
 
   vite: {
     build: {
