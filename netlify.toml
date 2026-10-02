@@ -18,6 +18,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/_bama/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # Self-hosted WOFF2 fonts — immutable binary files
 [[headers]]
   for = "/fonts/*"

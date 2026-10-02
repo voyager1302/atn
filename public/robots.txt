@@ -59,3 +59,4 @@ User-agent: AndiBot
 Allow: /
 
 Sitemap: https://atn-convert.com/sitemap-index.xml
+Sitemap: https://atn-convert.com/sitemap.xml

@@ -1,0 +1,5 @@
+/blog          https://atn.bama.blog/blog          200
+/blog/*        https://atn.bama.blog/blog/:splat   200
+/_bama/*       https://atn.bama.blog/_bama/:splat  200
+/rss.xml       https://atn.bama.blog/rss.xml       200
+/sitemap.xml   https://atn.bama.blog/sitemap.xml   200
