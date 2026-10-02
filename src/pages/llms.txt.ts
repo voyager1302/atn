@@ -1,4 +1,10 @@
-# ATN
+import type { APIRoute } from 'astro';
+import { SITE_URL } from '../lib/config/urls';
+import { PHONE_DISPLAY, WHATSAPP_DISPLAY } from '../lib/config/contact';
+
+// Served at /llms.txt. Phone numbers come from the contact config —
+// never write digits here.
+const body = `# ATN
 
 ATN בונה דפי נחיתה בעברית לעסקים בישראל, בגישה של יצירת
 אינטראקציה: הדף מגיב למשתמש ומוביל אותו לפעולה, במקום להציג
@@ -18,14 +24,20 @@ ATN בונה דפי נחיתה בעברית לעסקים בישראל, בגיש�
 
 ## יצירת קשר
 
-וואטסאפ: 058-700-2323
-טלפון: 054-765-7771
-אתר: https://atn-convert.com
+וואטסאפ: ${WHATSAPP_DISPLAY}
+טלפון: ${PHONE_DISPLAY}
+אתר: ${SITE_URL}
 
 ## עמודים באתר
 
-- https://atn-convert.com/ - דף הבית
-- https://atn-convert.com/services/ - השירותים
-- https://atn-convert.com/how-it-works/ - איך זה עובד
-- https://atn-convert.com/about/ - אודות
-- https://atn-convert.com/contact/ - יצירת קשר
+- ${SITE_URL}/ - דף הבית
+- ${SITE_URL}/services/ - השירותים
+- ${SITE_URL}/how-it-works/ - איך זה עובד
+- ${SITE_URL}/about/ - אודות
+- ${SITE_URL}/contact/ - יצירת קשר
+`;
+
+export const GET: APIRoute = () =>
+  new Response(body, {
+    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+  });

@@ -548,6 +548,9 @@ Each page must have:
 
 Home page title: "ATN | דפי נחיתה שמייצרים פעולה"
 
+- פריט דחוי: `blog/[slug].astro` לא מעביר `noindex`, ומסנן ה-sitemap ב-`astro.config.mjs` מוציא את `/blog` — כשיחוברו מאמרים, להחליט: noindex להם או להוסיפם ל-sitemap. דף הוא או אינדקסבילי ובסייטמאפ, או לא זה ולא זה.
+- רשומת סבב 23/9/2026: מוכנות AI ‏9/9 (‏cd81a12 + הקומיט הזה). קו הטלפון (054) והוואטסאפ (058) הם שני ערוצים חיים נפרדים, שניהם במקור יחיד ב-`src/lib/config/contact.ts`; ‏`llms.txt` הוא route שנגזר ממנו, בלי ספרות מחוץ לקונפיג.
+
 ---
 
 ## DEVELOPMENT ORDER — FOLLOW THIS SEQUENCE
