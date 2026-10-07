@@ -6,6 +6,7 @@ import '../styles/components.css';
 import '../styles/utilities.css';
 import { SITE_URL } from '../lib/config/urls';
 import { PHONE_E164_DASHED } from '../lib/config/contact';
+import Analytics from '../components/site/Analytics.astro';
 
 interface Props {
   title: string;
@@ -84,6 +85,7 @@ const isHomepage = Astro.url.pathname === '/';
   {isHomepage && (
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g, '\\u003c')} />
   )}
+  <Analytics />
 </head>
 <body>
   <script is:inline>

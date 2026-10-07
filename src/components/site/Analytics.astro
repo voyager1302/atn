@@ -1,0 +1,11 @@
+---
+import { ANALYTICS_DOMAIN } from '../../lib/config/urls';
+const enabled = import.meta.env.PROD && ANALYTICS_DOMAIN.length > 0;
+---
+{enabled && (
+  <script
+    defer
+    data-domain={ANALYTICS_DOMAIN}
+    src="https://plausible.io/js/script.outbound-links.file-downloads.js"
+  ></script>
+)}
